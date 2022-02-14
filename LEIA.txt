@@ -1,0 +1,34 @@
+
+
+functions = Funções auxiliares para uso em classes
+manager   = Chamado dos modelos de cada elemento da língua, criação e armazenamento das vars de gerenciamento
+manager   = Criação dos bancos
+menus     = Algoritmos de CRUD dos modelos de cada elemento da língua
+models    = Classes onde os bancos são criados
+strings   = Dados strings auxiliares na sessão de menu
+tools     = Dados iteráveis auxiliares na sessão de menu
+
+======= ORDEM DE CRIAÇÃO =======
+models
+menus
+
+======= IMPORTANTE =======
+tentar recriar o banco com novos campos
+
+noun = [
+    {"noun_sgl": ""},
+    {"noun_sgl_tr": ""},
+    {"noun_pl": ""},
+    {"noun_pl_tr": ""},
+]
+
+# Adjetivos só variam de escrita na tradução, no português
+adjetivo = [
+    {"adjective": ""},
+    {"adjective_tr": ""},
+]
+
+verb = [
+    {"verb_inf": ""},
+    {"verb_": ""},
+]
