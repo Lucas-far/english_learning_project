@@ -48,3 +48,22 @@ empty_database = 'Banco de dados vazio. Insira um objeto.'
 noun_to_be_deleted = f'\nQual o nome do substanto a ser deletado? {ink(hint)}'
 ask_if_remove = f'Confirmar a remoção? (0 = não deletar) (1 = deletar) {ink(hint)}'
 object_removal_canceled = 'Remoção do objeto cancelada.\n'
+
+closure_hint = ink('digite 0 e aperte ENTER')
+question_which_noun = """
+SAIR: {}
+======= QUAL O SIGNIFICADO DO SUBSTANTIVO {}? =======
+a) {}
+b) {}
+c) {}
+d) {}
+e) {} """
+
+success = 'Resposta correta'
+failure = 'Resposta incorreta'
+allowed_alternatives = 'Alternativas válidas: a, b, c, d ou e'
+thank_you_for_playing = 'Obrigado por jogar. Volte sempre!'
+
+current_score = """
+==================== PLACAR ====================
+Corretas {} x {} Erradas """
