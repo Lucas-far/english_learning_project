@@ -64,6 +64,4 @@ failure = 'Resposta incorreta'
 allowed_alternatives = 'Alternativas válidas: a, b, c, d ou e'
 thank_you_for_playing = 'Obrigado por jogar. Volte sempre!'
 
-current_score = """
-==================== PLACAR ====================
-Corretas {} x {} Erradas """
+current_score = "===== PLACAR: Acertos | {} | x | {} | Erros ====="
