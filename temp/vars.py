@@ -1,5 +1,36 @@
 
 
+# nouns = [
+#     'air', 'airs', 'area', 'areas', 'art', 'arts', 'body', 'bodies', 'book', 'books',
+#     'business', 'businesses', 'car', 'cars', 'change', 'changes', 'child', 'children', 'city', 'cities',
+#
+#     'community', 'communities', 'company', 'companies', 'country', 'countries', 'day', 'days', 'door', 'doors',
+#     'ending', 'endings', 'eye', 'eyes', 'face', 'faces', 'fact', 'facts', 'family', 'families',
+#
+#     'father', 'fathers', 'strength', 'strengths', 'friend', 'friends', 'game', 'games', 'girl', 'girls',
+#     'government', 'governments', 'group', 'groups', 'guy', 'guys', 'hand', 'hands', 'head', 'heads',
+#
+#     'history', 'histories', 'home', 'homes', 'hour', 'hours', 'house', 'houses', 'idea', 'ideas',
+#     'issue', 'issues', 'job', 'jobs', 'kid', 'kids', 'kind', 'kinds', 'law', 'laws',
+#
+#     'level', 'levels', 'life', 'lifes', 'line', 'lines', 'man', 'men', 'member', 'members',
+#     'minute', 'minutes', 'moment', 'moments', 'month', 'months', 'morning', 'mornings', 'mother', 'mothers',
+#
+#     'name', 'names', 'night', 'nights', 'number', 'numbers', 'office', 'offices', 'other', 'others',
+#     'parent', 'parents', 'part', 'parts', 'party', 'parties', 'person', 'people', 'piece of information', 'pieces of information',
+#
+#     'place', 'places', 'point', 'points', 'power', 'powers', 'president', 'presidents', 'problem', 'problems',
+#     'program', 'programs', 'question', 'questions', 'reason', 'reasons', 'research', 'researches', 'result', 'results',
+#
+#     'right', 'rights', 'room', 'rooms', 'school', 'schools', 'service', 'services', 'side', 'sides',
+#     'state', 'states', 'story', 'stories', 'student', 'students', 'study', 'studies', 'system', 'systems',
+#
+#     'teacher', 'teachers', 'team', 'teams', 'thing', 'things', 'time', 'times', 'war', 'wars',
+#     'water', 'waters', 'way', 'ways', 'week', 'weeks', 'woman', 'women', 'word', 'words',
+#
+#     'work', 'works', 'world', 'worlds', 'year', 'years'
+# ]
+
 nouns = [
     'air', 'airs', 'area', 'areas', 'art', 'arts', 'body', 'bodies', 'book', 'books',
     'business', 'businesses', 'car', 'cars', 'change', 'changes', 'child', 'children', 'city', 'cities',
@@ -30,6 +61,18 @@ nouns = [
 
     'work', 'works', 'world', 'worlds', 'year', 'years'
 ]
+nouns_singular = []
+nouns_plural = []
+
+for data in nouns:
+    the_index = nouns.index(data)
+    if not the_index % 2:
+        nouns_singular.append(nouns[the_index])
+    else:
+        nouns_plural.append(nouns[the_index])
+
+# print(nouns_singular)
+# print(nouns_plural)
 
 nouns_pt_br = [
     'ar', 'ares', 'área', 'áreas', 'arte', 'artes', 'corpo', 'corpos', 'livro', 'livros', 'negócios', 'os negócios',
@@ -62,6 +105,18 @@ nouns_pt_br = [
 
     'trabalho', 'trabalhos', 'mundo', 'mundos', 'ano', 'anos'
 ]
+nouns_singular_translation = []
+nouns_plural_translation = []
+
+for data in nouns_pt_br:
+    the_index = nouns_pt_br.index(data)
+    if not the_index % 2:
+        nouns_singular_translation.append(nouns_pt_br[the_index])
+    else:
+        nouns_plural_translation.append(nouns_pt_br[the_index])
+
+# print(nouns_singular_translation)
+# print(nouns_plural_translation)
 
 adjectives = [
     'cool', 'new', 'good', 'high', 'old', 'great', 'big', 'small', 'large', 'wide', 'young',

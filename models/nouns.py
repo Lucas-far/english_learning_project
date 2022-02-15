@@ -35,7 +35,9 @@ class Nouns(Base):
         return {
             "id_": the_object.id_,
             "noun": the_object.noun,
-            "noun_tr": the_object.noun_tr
+            "noun_translation": the_object.noun_translation,
+            "noun_plural": the_object.noun_plural,
+            "noun_plural_translation": the_object.noun_plural_translation,
         }
 
     # Visualizar banco, armazenado em uma var e retornado
@@ -81,13 +83,21 @@ class Nouns(Base):
 
     # Função PUT - necessária duas listas, uma para o substantivo e outra para a sua tradução
     @staticmethod
-    def database_insert_many(exec_, length, noun_box, noun_tr_box):
+    def database_insert_many(exec_, length, box_noun, box_noun_translation, box_noun_plural, box_noun_plural_translation):
+        # noun = Column(String(100))
+        #     noun_translation = Column(String(100))
+        #     noun_plural = Column(String(100))
+        #     noun_plural_translation = Column(String(100))
         index = 0
         yes = None  # Se for alterada, o objeto não será add ao banco
         nouns_database = Nouns.database_as_var(exec_)  # Banco em var
 
         while index < length:  # Loop para iterar sob todos os dados das listas
-            noun_object = Nouns(noun=noun_box[index], noun_tr=noun_tr_box[index])  # objeto parâmetro
+            noun_object = Nouns(noun=box_noun[index],
+                                noun_translation=box_noun_translation[index],
+                                noun_plural=box_noun_plural[index],
+                                noun_plural_translation=box_noun_plural_translation[index],
+            )  # objeto parâmetro
             for json in nouns_database:  # Iteração sob o banco
                 if json['noun'] == noun_object.noun:  # nome do substantivo do banco == substantivo do objeto
                     yes = True
@@ -111,7 +121,7 @@ class Nouns(Base):
         print(_after, target_object_now)
 
     @staticmethod
-    def object_noun_tr_update(exec_, noun_tr, _key, _value):
+    def object_noun_translation_update(exec_, noun_tr, _key, _value):
         object_update = '\n======= ATUALIZAÇÃO DO OBJETO ======='
         _before = '======= ANTES =======\n'
         _after = '======= DEPOIS =======\n'
@@ -137,4 +147,6 @@ class Nouns(Base):
 
     id_ = Column(Integer, primary_key=True, autoincrement=True)
     noun = Column(String(100))
-    noun_tr = Column(String(100))
+    noun_translation = Column(String(100))
+    noun_plural = Column(String(100))
+    noun_plural_translation = Column(String(100))

@@ -101,7 +101,7 @@ class Noun:
         elif self.__which_to_edit == '2':
             self.__new_noun_translation = input(new_value.format('o substantivo', ink(hint)))
             # par2 (Nouns.noun_tr == par2) / Par3 e par4 (Nouns.update(par3: par4))
-            Nouns.object_noun_tr_update(exec_=noun_db_cursor,
+            Nouns.object_noun_translation_update(exec_=noun_db_cursor,
                                         noun_tr=self.__noun_tr_element,
                                         _key="noun_tr",
                                         _value=self.__new_noun_translation)
@@ -118,7 +118,7 @@ class Noun:
                 _key="noun",
                 _value=self.__new_noun
             )
-            Nouns.object_noun_tr_update(
+            Nouns.object_noun_translation_update(
                 exec_=noun_db_cursor,
                 noun_tr=self.__noun_tr_element,
                 _key="noun_tr",

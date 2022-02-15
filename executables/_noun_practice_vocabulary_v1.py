@@ -18,24 +18,29 @@ class Game:
     @staticmethod
     def get_nouns_from_source():
         box_with_nouns = []
+        # É o mesmo que: for data in Nouns.database_as_var(exec_=noun_db_cursor)
         for data in noun_database:
+            # O banco possui campos das versões singular e plural
             box_with_nouns.append(data['noun'])
+            box_with_nouns.append(data['noun_plural'])
         return box_with_nouns
 
     # Inserir traduções dos substantivos numa lista
     @staticmethod
-    def get_nouns_tr_from_source():
-        box_with_nouns_tr = []
+    def get_nouns_translation_from_source():
+        box_with_nouns_translation = []
         for data in noun_database:
-            box_with_nouns_tr.append(data['noun_tr'])
-        return box_with_nouns_tr
+            box_with_nouns_translation.append(data['noun_translation'])
+            box_with_nouns_translation.append(data['noun_plural_translation'])
+        return box_with_nouns_translation
 
     # Pegar um substantivo para usar: como alternativa ou opção certa
     @staticmethod
     def get_random_noun():
         the_noun = choice(Game.get_nouns_from_source())
-        the_noun = Nouns.database_query_by_noun(exec_=noun_db_cursor, noun=the_noun)
-        the_noun = the_noun['noun']
+
+        # the_noun = Nouns.database_query_by_noun(exec_=noun_db_cursor, noun=the_noun)
+        # the_noun = the_noun['noun']
         return the_noun
 
     # Coletar dados para adquirir 5 opções para construir a alternativa
@@ -43,14 +48,18 @@ class Game:
         nouns_translations = []
         nouns_set = set({})
 
-        # Obtenção dos substantivos (é conjunto para não repetir alternativas)
+        # Vars necessárias para achar as traduções na ordem correta
+        all_nouns = Game.get_nouns_from_source()
+        all_nouns_translations = Game.get_nouns_translation_from_source()
+
+        # Obtenção dos substantivos (o tipo de dado é conjunto para não repetir alternativas)
         while len(nouns_set) < 5:
             nouns_set.add(Game.get_random_noun())
         nouns_set = list(nouns_set)
 
-        # Obtenção da tradução dos substantivos
+        # Obtenção dos índices dos substantivos após sua adição
         for noun in nouns_set:
-            nouns_translations.append(Nouns.database_query_by_noun(exec_=noun_db_cursor, noun=noun)['noun_tr'])
+            nouns_translations.append(all_nouns_translations[all_nouns.index(noun)])
 
         # Substantivos salvos
         self.__nouns = nouns_set
@@ -148,7 +157,7 @@ class Game:
 if __name__ == '__main__':
     test_object = Game()
     # print(test_object.get_nouns_from_source())
-    # print(test_object.get_nouns_tr_from_source())
-    # print(test_object.get_random_noun())
-    "ALGORITMO COMEÇA AQUI"
+    # print(test_object.get_nouns_translation_from_source())
+
+    # "ALGORITMO COMEÇA AQUI"
     test_object.init_config()
